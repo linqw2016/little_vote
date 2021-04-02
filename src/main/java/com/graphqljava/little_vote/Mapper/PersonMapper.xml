@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.graphqljava.little_vote.Mapper.PersonMapper">
+    <resultMap id="BaseResultMap" type="com.graphqljava.little_vote.bean.Person">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="username" property="username" jdbcType="VARCHAR"/>
+        <result column="voteNums" property="voteNums" jdbcType="INTEGER"/>
+        <result column="version" property="version" jdbcType="INTEGER"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, username, voteNums,version
+    </sql>
+    <update id="updatePerson" parameterType="com.graphqljava.little_vote.bean.Person">
+        <![CDATA[
+          	update persons set voteNums = #{voteNums,jdbcType=INTEGER}+1, version = version + 1 where id =#{id,jdbcType=INTEGER} and version = #{version,jdbcType=INTEGER}
+           ]]>
+<!--        update persons-->
+<!--        <set>-->
+<!--            voteNums=#{voteNums},-->
+<!--            version = version + 1-->
+<!--        </set>-->
+<!--        where id = #{id,jdbcType=INTEGER} and version=#{version,jdbcType=INTEGER}-->
+    </update>
+
+    <select id="getPersonById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from persons
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <select id="getPersonByUsername" resultType="com.graphqljava.little_vote.bean.Person">
+        select
+        <include refid="Base_Column_List"/>
+        from persons
+        where username = #{username,jdbcType=INTEGER}
+    </select>
+</mapper>

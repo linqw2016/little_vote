@@ -1,0 +1,7 @@
+input Vote{
+    selectedPersons:[String!]
+    ticket:Ticket
+}
+input Ticket{
+    time:String!
+}

@@ -1,0 +1,4 @@
+type RespBean{
+    status:String!,
+    msg:String!
+}

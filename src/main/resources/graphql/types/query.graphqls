@@ -1,0 +1,21 @@
+type Query{
+    # person 查询
+    personByUsername(username:String!):Person!
+    getCas:RespBean!
+
+}
+
+#查询的例子
+#query{
+#    personByUsername(username:"小李"){
+#        id
+#        username
+#        voteNums
+#    }
+#}
+#query{
+#    getCas{
+#        msg
+#        status
+#    }
+#}

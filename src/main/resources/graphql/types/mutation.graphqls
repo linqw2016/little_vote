@@ -1,0 +1,15 @@
+type Mutation {
+    # person 增删改 functionName(key:value...);
+    # createPerson(createPersonInput: CreatePersonInput!): Person!
+    updatePerson(id: ID!, votesNums: Int): RespBean!
+    vote(vote:Vote!):RespBean!
+    # deletePerson(id: ID!): Boolean
+}
+
+#修改例子
+#mutation{
+#    updatePerson(id:2,votesNums:20){
+#        msg
+#        status
+#    }
+#}

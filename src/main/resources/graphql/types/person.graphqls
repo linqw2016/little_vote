@@ -1,0 +1,8 @@
+# about little vote
+type Person{
+    # !表示非空；
+    id:ID!
+    username:String!
+    voteNums: Int
+    version:Int
+}
