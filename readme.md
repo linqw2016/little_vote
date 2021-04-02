@@ -1,4 +1,6 @@
 # little vote
+
+技术栈：springboot + mysql + redis + graphql + druid + mybatis
 ## 类
 * 票据管理
     
